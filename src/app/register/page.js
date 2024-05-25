@@ -14,10 +14,11 @@ export default function Register() {
       >
         <header className="flex items-center justify-between px-6 py-4">
           <img className="w-32 h-20" src="/assets/logo.svg" alt="logo" />
-          <Link href="/login">
-            <a className="text-white border-2 border-white hover:border-purple-dark hover:text-purple-dark px-4 py-2 rounded-xl">
-              FAÇA LOGIN
-            </a>
+          <Link
+            href="/login"
+            className="text-white border-2 border-white hover:border-purple-dark hover:bg-white  hover:text-purple-dark px-4 py-2 rounded-xl"
+          >
+            FAÇA LOGIN
           </Link>
         </header>
         <section className="flex-grow flex items-center">
