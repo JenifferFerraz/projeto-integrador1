@@ -86,12 +86,14 @@ export default function Login() {
                     </a>
                   </div>
                   <div className="w-full flex flex-row justify-center">
-                    <button
-                      type="submit"
-                      className="w-48 text-white bg-purple-dark hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-sm py-2.5 text-center dark:bg-primary-600  hover:bg-purple-light"
-                    >
-                      Login
-                    </button>
+                    <Link href="/iniciar" passHref>
+                      <button
+                        type="submit"
+                        className="w-48 text-white bg-purple-dark hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-sm py-2.5 text-center dark:bg-primary-600  hover:bg-purple-light"
+                      >
+                        Login
+                      </button>
+                    </Link>
                   </div>
                 </form>
               </div>

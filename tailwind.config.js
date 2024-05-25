@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,7 +16,15 @@ module.exports = {
       colors: {
         'purple-dark': '#2D0034',
         'gray-base': '#D9D9D9',
-        'purple-light': '#820098'
+        'purple-light': '#820098',
+        'purple-bg': '#430153'
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        'montserrat-alternates': [
+          'Montserrat Alternates',
+          ...defaultTheme.fontFamily.sans
+        ]
       }
     }
   },
