@@ -23,7 +23,7 @@ export default function Perguntas() {
         <div>
           {/* Centralize o botão na tela */}
           <Link href="/respostas">
-            <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-80 h-16 hover:bg-purple-600 transition duration-300 ease-in-out font-montserrat-alternates">
+            <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-80 h-16 hover:bg-purple-light  hover:text-white transition duration-300 ease-in-out font-montserrat-alternates hover:border-white border">
               CONTINUAR{' '}
             </button>
           </Link>
