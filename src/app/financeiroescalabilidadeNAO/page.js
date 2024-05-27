@@ -10,7 +10,7 @@ export default function Perguntas() {
             alt=""
             className="w-full h-full animate-bounce"
           />
-          <div className="absolute top-10 left-full w-[300%] h-32 bg-gray-base rounded-2xl p-4 shadow-lg mt-4 ml-4">
+          <div className="absolute top-10 left-full w-[250%] h-32 bg-gray-base rounded-2xl p-4 shadow-lg mt-4 ml-4">
             <p className="text-purple-dark text-2xl font-montserrat-alternates	text-medium">
               Você está disposto a pagar por uma solução de banco de dados?
             </p>
@@ -19,17 +19,17 @@ export default function Perguntas() {
       </div>
 
       <div className="flex flex-col items-center space-y-11">
-          <Link href="/postgresql">
-            <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-96 h-20 hover:bg-purple-light  hover:text-white transition duration-300 ease-in-out font-montserrat-alternates hover:border-white border text-2xl">
-                Sim
-            </button>
-          </Link>
-          <Link href="/postgresql">
-            <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-96 h-20 hover:bg-purple-light  hover:text-white transition duration-300 ease-in-out font-montserrat-alternates hover:border-white border text-2xl">
-                Não
-            </button>
-          </Link>
-    </div>
+        <Link href="/postgresql">
+          <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-96 h-20 hover:bg-purple-light  hover:text-white transition duration-300 ease-in-out font-montserrat-alternates hover:border-white border text-2xl">
+            Sim
+          </button>
+        </Link>
+        <Link href="/postgresql">
+          <button className="px-6 py-3 bg-gray-base text-purple-dark rounded-2xl shadow-md w-96 h-20 hover:bg-purple-light  hover:text-white transition duration-300 ease-in-out font-montserrat-alternates hover:border-white border text-2xl">
+            Não
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }
