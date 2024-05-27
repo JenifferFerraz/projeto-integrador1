@@ -1,6 +1,94 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { initializeApp } from 'firebase/app'
+import {
+  getAuth,
+  GoogleAuthProvider,
+  TwitterAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import Link from 'next/link'
 
+const firebaseConfig = {
+  apiKey: 'AIzaSyAAK4bHnuj3Yctj9Mkw5eHmMWsqDncnbck',
+  authDomain: 'sing-in-login.firebaseapp.com',
+  projectId: 'sing-in-login',
+  storageBucket: 'sing-in-login.appspot.com',
+  messagingSenderId: '507593083400',
+  appId: '1:507593083400:web:cf602fb9cafd2e4440dfbd',
+  measurementId: 'G-C98HDZK3LS'
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
+auth.languageCode = 'en'
+
+const googleProvider = new GoogleAuthProvider()
+const twitterProvider = new TwitterAuthProvider()
+const facebookProvider = new FacebookAuthProvider()
+
+const signInWithProvider = async (provider, setLoading) => {
+  try {
+    setLoading(true)
+    const result = await signInWithPopup(auth, provider)
+    const user = result.user
+    console.log(user)
+    window.location.href = '/iniciar'
+  } catch (error) {
+    if (error.code === 'auth/popup-blocked') {
+      console.error('Popup was blocked. Please allow popups for this site.')
+    } else if (error.code === 'auth/cancelled-popup-request') {
+      console.error(
+        'Popup request was cancelled. Only one popup request allowed at a time.'
+      )
+    } else if (error.code === 'auth/invalid-credential') {
+      console.error('Invalid credentials. Please try again.')
+    } else if (error.code === 'auth/popup-closed-by-user') {
+      console.error('Popup closed by user. Please try again.')
+    } else {
+      console.error('Error during sign-in:', error)
+    }
+  } finally {
+    setLoading(false)
+  }
+}
+
 export default function Login() {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const googleButton = document.getElementById('google-btn')
+    const twitterButton = document.getElementById('twitter-btn')
+    const facebookButton = document.getElementById('facebook-btn')
+
+    const handleSignIn = provider => {
+      if (!loading) {
+        signInWithProvider(provider, setLoading)
+      }
+    }
+
+    googleButton.addEventListener('click', () => handleSignIn(googleProvider))
+    twitterButton.addEventListener('click', () => handleSignIn(twitterProvider))
+    facebookButton.addEventListener('click', () =>
+      handleSignIn(facebookProvider)
+    )
+
+    return () => {
+      googleButton.removeEventListener('click', () =>
+        handleSignIn(googleProvider)
+      )
+      twitterButton.removeEventListener('click', () =>
+        handleSignIn(twitterProvider)
+      )
+      facebookButton.removeEventListener('click', () =>
+        handleSignIn(facebookProvider)
+      )
+    }
+  }, [loading])
+
   return (
     <main className="min-h-screen flex flex-col">
       <div
@@ -16,7 +104,7 @@ export default function Login() {
           <Link
             href="/register"
             passHref
-            className="text-white border-2 border-white hover:border-purple-dark hover:bg-white  hover:text-purple-dark px-4 py-2 rounded-xl"
+            className="text-white border-2 border-white hover:border-purple-dark hover:bg-white hover:text-purple-dark px-4 py-2 rounded-xl"
           >
             CADASTRE-SE
           </Link>
@@ -89,7 +177,7 @@ export default function Login() {
                     <Link href="/iniciar" passHref>
                       <button
                         type="submit"
-                        className="w-48 text-white bg-purple-dark hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-sm py-2.5 text-center dark:bg-primary-600  hover:bg-purple-light"
+                        className="w-48 text-white bg-purple-dark hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-xl text-sm py-2.5 text-center dark:bg-primary-600 hover:bg-purple-light"
                       >
                         Login
                       </button>
@@ -113,40 +201,48 @@ export default function Login() {
                   <div className="flex justify-center">
                     <a
                       href="#"
+                      id="facebook-btn"
                       className="flex items-center justify-center px-6 py-3 border border-purple-dark rounded-xl shadow-sm text-sm font-medium text-purple-dark bg-white hover:bg-gray-50"
                     >
                       <img
                         className="h-5 w-5"
                         src="https://www.svgrepo.com/show/512120/facebook-176.svg"
-                        alt=""
+                        alt="Facebook"
                       />
                     </a>
                   </div>
                   <div className="flex justify-center">
                     <a
                       href="#"
+                      id="twitter-btn"
                       className="flex items-center justify-center px-6 py-3 border border-purple-dark rounded-xl shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                     >
                       <img
                         className="h-5 w-5"
                         src="https://www.svgrepo.com/show/513008/twitter-154.svg"
-                        alt=""
+                        alt="Twitter"
                       />
                     </a>
                   </div>
                   <div className="flex justify-center">
                     <a
                       href="#"
+                      id="google-btn"
                       className="flex items-center justify-center px-6 py-3 border border-purple-dark rounded-xl shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                     >
                       <img
                         className="h-6 w-6"
                         src="https://www.svgrepo.com/show/506498/google.svg"
-                        alt=""
+                        alt="Google"
                       />
                     </a>
                   </div>
                 </div>
+                {loading && (
+                  <div className="mt-4 text-center text-purple-dark">
+                    Loading...
+                  </div>
+                )}
               </div>
             </div>
           </div>
