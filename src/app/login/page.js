@@ -12,13 +12,13 @@ import {
 import Link from 'next/link'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAAK4bHnuj3Yctj9Mkw5eHmMWsqDncnbck',
-  authDomain: 'sing-in-login.firebaseapp.com',
-  projectId: 'sing-in-login',
-  storageBucket: 'sing-in-login.appspot.com',
-  messagingSenderId: '507593083400',
-  appId: '1:507593083400:web:cf602fb9cafd2e4440dfbd',
-  measurementId: 'G-C98HDZK3LS'
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 }
 
 // Initialize Firebase
