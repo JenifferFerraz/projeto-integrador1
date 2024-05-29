@@ -11,7 +11,7 @@ export default function Perguntas() {
             className="w-64 h-52 animate-bounce"
           />
         </div>
-        <div className="bg-gray-base rounded-2xl p-4 shadow-lg ">
+        <div className="bg-gray-base rounded-2xl p-6 shadow-lg ">
           <p className="text-purple-dark text-xl md:text-2xl font-montserrat-alternates text-medium">
             Com base nas suas respostas, encontrei a tecnologia ideal para você!
             Espero que essa recomendação ajude a impulsionar seu projeto. Se
@@ -21,7 +21,7 @@ export default function Perguntas() {
       </div>
 
       <div className="flex justify-center items-center flex-grow">
-        <div className="bg-gray-base rounded-2xl flex justify-center h-2/4 items-center p-4 w-full md:w-3/4 lg:w-1/2 xl:w-2/5">
+        <div className="bg-gray-base rounded-2xl flex  shadow-neon  justify-center h-2/4 items-center p-10 w-full md:w-3/4 lg:w-1/2 xl:w-2/5">
           <h1 className="text-purple-dark font-montserrat-alternates font-bold text-7xl">
             MongoDB
           </h1>

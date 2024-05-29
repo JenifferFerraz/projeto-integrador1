@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { initializeApp } from 'firebase/app'
+
 import {
   getAuth,
   GoogleAuthProvider,
@@ -92,7 +93,7 @@ export default function Login() {
   return (
     <main className="min-h-screen flex flex-col">
       <div
-        className="min-h-screen flex flex-col bg-purple-700"
+        className="min-h-screen flex flex-col bg-purple-dark"
         style={{
           backgroundImage: 'url("/assets/bg.svg")',
           backgroundSize: 'cover',
@@ -100,7 +101,7 @@ export default function Login() {
         }}
       >
         <header className="flex items-center justify-between px-6 py-4">
-          <img className="w-32 h-20" src="/assets/logo.svg" alt="logo" />
+          <img className="w-32 h-20" src="/assets/Group.svg" alt="logo" />
           <Link
             href="/register"
             passHref

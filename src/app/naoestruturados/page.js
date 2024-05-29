@@ -10,7 +10,7 @@ export default function Perguntas() {
             alt=""
             className="w-full h-full animate-bounce"
           />
-          <div className="absolute top-10 left-full w-[200%] h-32 bg-gray-base rounded-2xl p-4 shadow-lg mt-4 ml-4">
+          <div className="absolute top-10 left-full w-[200%] h-32 bg-gray-base rounded-2xl p-4 shadow-lg mt-12 ml-4">
             <p className="text-purple-dark text-2xl font-montserrat-alternates	text-medium">
               Que tipo de operações são mais frequentes?
             </p>

@@ -5,7 +5,7 @@ export default function Register() {
   return (
     <main className="min-h-screen flex flex-col">
       <div
-        className="min-h-screen flex flex-col bg-purple-700"
+        className="min-h-screen flex flex-col bg-purple-dark"
         style={{
           backgroundImage: 'url("/assets/bg.svg")',
           backgroundSize: 'cover',
@@ -13,7 +13,7 @@ export default function Register() {
         }}
       >
         <header className="flex items-center justify-between px-6 py-4">
-          <img className="w-32 h-20" src="/assets/logo.svg" alt="logo" />
+          <img className="w-32 h-20" src="/assets/Group.svg" alt="logo" />
           <Link
             href="/login"
             className="text-white border-2 border-white hover:border-purple-dark hover:bg-white  hover:text-purple-dark px-4 py-2 rounded-xl"
